@@ -1,0 +1,56 @@
+@import "common.css";
+
+/* HEADING SECTION */
+
+#junior-high-heading-section{
+	background: url("../images/main/backgrounds/us-bg-fixed.jpg") no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: 50% 12%;
+
+}
+
+#junior-high-heading-section h1{
+	display: block;
+	letter-spacing: 0.02em;
+}
+
+
+@media only screen and (min-height: 1024px) and (orientation: portrait) {
+	#junior-high-heading-section{
+		background-attachment: unset;
+	}
+}
+	
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+	#junior-high-heading-section{
+	background-attachment: unset;
+	background-position: 50% 55%;
+	}
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait){
+	/* HEADING SECTION*/
+	#junior-high-heading-section{
+		background-attachment: unset;
+		background: url("../images/main/backgrounds/us-bg-unfixed.jpg");
+		background-size: cover;
+		background-position: 45% 0%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	
+}
+
+@media only screen and (max-width: 568px) {
+	
+}
+
+@media only screen and (max-width: 475px) {
+	/* HEADING SECTION*/
+	#junior-high-heading-section #main-heading-wrapper{
+		padding-left: 0em;
+		padding-right: 0em;
+	}
+}

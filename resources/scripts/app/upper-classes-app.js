@@ -1,0 +1,2 @@
+requirejs(['domReady'],function (domReady){
+});

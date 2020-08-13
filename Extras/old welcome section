@@ -1,0 +1,206 @@
+HTML:
+
+
+		<section id="welcome-section">
+			<div id="welcome-heading">Greetings from GGIS</div>
+			<hr class="welcome-separator">
+			<div id="welcome-content">
+				<div class="welcome-paragraph">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="welcome-paragraph">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</div>
+			<div id="welcome-signature">
+				Micah Stambowsky
+			</div>
+			<div id="welcome-image">
+			</div>
+		</section>
+
+CSS:
+
+#welcome-section{
+	grid-row: 2/3;
+
+	/* parent grid = main(5 x 1)*/
+	display: grid;
+	/* Making welcome-content row 70% because welcome-image defines the height of the whole grid
+		When that happens, the other rows tend to be taller than needed.
+		This makes it so welcome-heading, welcome-separator and welcome- signature rows have the 
+		right height, welcome-content fills up the rest of the height define by welcome-image*/
+	grid-template-rows: auto auto 70% auto ;
+	grid-template-columns: 
+		/*empty side - text - image - empty side*/
+		auto minmax(auto, 900px) max-content auto;
+	grid-column-gap: 2em;
+	grid-row-gap: 1em;
+}
+
+#welcome-heading{
+	/* parent grid = welcome-section(4 x 3)*/
+	grid-row: 1/2;
+	grid-column: 2/3;
+
+	font-family: 'Vollkorn', serif;
+	font-size: 2.5em;
+
+	margin-left: 0.5em;
+}
+
+hr.welcome-separator{
+	/* parent grid = welcome-section(4 x 3)*/
+	grid-row: 2/3;
+	grid-column: 2/3;
+
+	background-color: #be1e23;
+	border: 1px solid #be1e23;
+	width: 70px;
+
+	margin-left: 1em;
+}
+
+#welcome-content{
+	/* parent grid = welcome-section(4 x 3)*/
+	grid-row: 3/4;
+	grid-column: 2/3;
+}
+
+.welcome-paragraph{
+	font-family: 'Merriweather', serif;
+	font-size: 0.92em;
+	line-height: 1.8em;
+
+	text-align: left;
+	text-indent: 1em;
+	text-shadow: 0px 0px 20px #5a4839;
+
+	margin-bottom: 1em;
+}
+
+#welcome-signature{
+	/* parent grid = welcome-section(4 x 3)*/
+	grid-row: 4/5;
+	grid-column: 2/3;
+
+	justify-self: right;
+	align-self: end;
+
+	font-family: "Tangerine", Sans-serif;
+	color:#1e73be;
+	font-size: 2.188em;
+}
+
+#welcome-image{
+	/* parent grid = welcome-section(4 x 3)*/
+	grid-row: 1/5;
+	grid-column: 3/4;
+
+	justify-self: center;
+
+	content: url("../images/main/director-image2.jpg");
+	height: 550px;
+}
+
+@media only screen and (max-width: 1024px){
+	/* WELCOME SECTION*/
+	/* Making all elements shrink with the viewport*/
+	#welcome-section{
+		/* smaller gaps for narrow viewport with image and text*/
+		grid-row-gap: 0.5em; 
+	}
+	#welcome-heading{
+		font-size: 3.9vw;
+	}
+
+	.welcome-paragraph{
+		font-size: 1.4vw;
+	}
+
+	#welcome-signature{
+		font-size: 3.2vw;
+	}
+
+	#welcome-image{
+		height: 53.5vw;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	/* WELCOME SECTION*/
+	#welcome-section{
+		/*Eliminating image column*/
+		grid-template-columns: 1fr auto 1fr;
+		/*Making welcome-content row auto. Since welcome-image doesn't exist anymore, 
+			The grid rows are not expanded anymore*/
+		grid-template-rows: auto auto auto auto ;
+
+		grid-row-gap: 1em;
+		grid-column-gap: 1.5em;
+		
+		justify-self:center;
+	}
+	#welcome-heading{
+		font-size: 5vw;
+		justify-self: center;
+		/* unsetting default left margin */
+		margin-left: 0;
+	}
+	hr.welcome-separator{
+		justify-self:center;
+		width: 50%;
+		/* unsetting default left margin */
+		margin-left: 0;
+	}
+
+	.welcome-paragraph{
+		font-size: 2vw;
+		text-align: center;
+		text-indent: 0;
+	}
+
+	#welcome-image{
+		/* Removing image in small viewports*/
+		display: none;
+	}
+
+	#welcome-signature{
+		font-size: 5vw;
+		margin-right: 0.5em;
+		/* grid gap work for the rest of the rows except for the signature*/
+		margin-top: -0.5em;
+	}
+}
+@media only screen and (max-width: 568px) {
+	/* WELCOME SECTION*/
+	#welcome-heading{
+		font-size: 1.78em;
+	}
+	hr.welcome-separator{
+		width: 15em;
+	}
+
+	.welcome-paragraph{
+		font-size: 0.68em;
+	}
+
+	#welcome-signature{
+		font-size: 1.8em;
+	}
+	/* ACADEMICS SECTION */
+	#academics-heading{
+		justify-self: center;
+		padding-top: 2em;
+	}
+}

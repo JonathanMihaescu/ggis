@@ -1,0 +1,789 @@
+@import "common.css";
+@import "utils/swiper.min.css";
+
+/* HEADING SECTION */
+
+#home-heading-section{
+	background: url("../images/main/backgrounds/home-bg-unfixed.jpg") no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: 100% 0%;
+}
+
+#home-heading-section .desktop-h1{
+	display: block;
+	letter-spacing: 0.05em;
+}
+
+#home-heading-section .mobile-h1-row{
+	display: none;
+}
+#home-heading-section .mobile-h1-row .mobile-h1{
+	font-size: 3.4em;
+	margin: 0.1em;
+}
+
+
+/* WELCOME SECTION */
+
+#directors-welcome .section-heading{
+	text-align: center;
+}
+
+#directors-welcome .section-content{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+#directors-welcome .signature{
+	float: right;
+	text-align: right;
+	margin-right: 3em;
+	margin-top: 2em;
+}
+
+#directors-welcome .signature div:nth-child(1){
+	font-size: 1.3em;
+	font-family: 'Vollkorn', sans;
+	line-height: 1.3em;
+}
+
+#directors-welcome .signature div:nth-child(2){
+
+	font-family: 'Lato', sans-serif;
+	font-size: 1.3em;
+	font-weight: 300;
+	font-style: italic;
+}
+
+
+
+/* ACADEMICS SECTION */
+#academics-content-wrapper{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 1em;
+	width: 100%;
+}
+.academics-sub-section{
+	display: grid;
+	grid-template-rows: auto auto auto auto;
+	justify-items:center;
+	grid-row-gap: 2em;
+	max-width: 400px;
+}
+#academics-kindergarten{
+	grid-column: 1/2;
+	justify-self:left;
+}
+#academics-elementary{
+	grid-column: 2/3;
+	justify-self:center;
+}
+#academics-school{
+	grid-column: 3/4;
+	justify-self:right;
+}
+
+.img-hover-zoom {
+	grid-row: 1/2;
+	overflow: hidden; 
+	border: 6px solid #103e66;
+}
+.img-hover-zoom img {
+	width: 100%;
+	max-width: 400px;
+	transform: scale(1.05);
+}
+
+.img-hover-zoom:hover img {
+	transition: transform .8s ease;
+	transform: scale(1.2);
+}
+
+.academics-sub-section h3{
+	grid-row: 2/3;
+}
+
+.academics-sub-section p{
+	grid-row: 3/4;
+	padding: 0 1em;
+	text-align: center;
+  	overflow: hidden; 
+}
+
+#academics-content-wrapper hr{
+	display: none;
+}
+
+.academics-sub-section a{
+	grid-row: 4/5;
+}
+
+/* ADMISSION SECTION */
+
+#admission-content-wrapper{
+	display: grid;
+	grid-template-columns: max-content auto max-content;
+	grid-template-rows: max-content auto max-content;
+	grid-column-gap: 1em;
+	grid-row-gap: 1em;
+	justify-items: center;
+}
+#admission-content-wrapper div.label{
+	width: 150px;
+	text-align: center;
+}
+
+#admission-top-left{
+	grid-row: 1/2;
+	grid-column: 1/2;
+}
+#admission-top-right{
+	grid-row: 1/2;
+	grid-column: 3/4;
+}
+#admission-bottom-left{
+	grid-row: 3/4;
+	grid-column: 1/2;
+}
+#admission-bottom-right{
+	grid-row: 3/4;
+	grid-column: 3/4;
+}
+#admission-content-wrapper hr{
+	justify-self:center;
+	align-self:center;
+}
+
+#admission-top-separator{
+	grid-row: 1/2;
+	grid-column: 2/3;
+}
+
+#admission-left-separator{
+	grid-row: 2/3;
+	grid-column: 1/2;
+}
+
+#admission-right-separator{
+	grid-row: 2/3;
+	grid-column: 3/4;
+}
+
+#admission-bottom-separator{
+	grid-row: 3/4;
+	grid-column: 2/3;
+}
+#admission-main-item{
+	grid-row: 2/3;
+	grid-column: 2/3;
+	justify-self:center;
+	align-self:center;
+}
+
+.admission-button{
+	min-width: 80%;
+	border:2px solid white;
+	font-family: 'Open Sans', sans-serif;;
+	font-weight: lighter;
+	font-size: 1.5em;
+	padding: 0.5em 1em;
+	margin: 0.5em auto;
+	text-align: center;
+	cursor: pointer;
+	letter-spacing: 0.1em;
+	word-spacing: 0.2em;
+}
+
+.admission-button:hover{	
+	color: #103e66;
+	background-color: #fefaf7;
+}
+
+h6{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 6em;
+	text-transform: uppercase;
+  	text-justify: inter-character;
+}
+
+h5{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: lighter;
+	font-size: 1.125em;
+	text-align: center;
+}
+
+/* TESTIMONIALS SECTION */
+#testimonials-swiper{
+	/* parent grid = testimonials-section(2 x 3)*/
+	grid-row: 2/3;
+	grid-column: 2/3;
+
+	width:100%;
+
+	display: grid;
+	/* testimonial prev button - swiper container - testimonial next button */
+	grid-template-columns: min-content auto min-content;
+	grid-column-gap: 2em; 
+}
+
+#testimonial-prev-button{
+	/* parent grid = testimonials-swiper(1 x 3)*/
+	grid-column: 1/2;
+	/* Centers content vertically */
+	align-self: center;
+	margin: 0;
+}
+
+/* TODO: apply to a specific id ? */
+.swiper-container {
+	/* parent grid = testimonials-swiper(1 x 3)*/
+	grid-column: 2/3;
+
+	/* Important to make swiper work on mobile viewports */
+	min-width: 100%;
+	max-width: 100%;
+}
+#testimonial-next-button{
+	/* parent grid = testimonials-swiper(1 x 3)*/
+	grid-column: 3/4;
+	/* Centers content vertically */
+	align-self: center;
+	margin: 0;
+}
+
+.testimonial{
+	display: grid;
+	grid-template-columns: max-content auto;
+	grid-template-rows: auto minmax(28px,auto) ;
+
+	grid-row-gap: 1em;
+	grid-column-gap: 1em;
+}
+
+
+.testimonial-person-image{
+	/* parent grid = testimonials(2 x 2)*/
+	grid-row: 1/3;
+	grid-column: 1/2;
+
+	width: 12.5em;
+
+	border-radius: 50%;
+	box-shadow: 0 0 8px black;
+	/*Shadow is squarish without margin*/
+	margin: 1em;
+}
+
+.testimonial-quatation-marks{
+	/* parent grid = testimonials(2 x 2)*/
+	grid-row: 1/2;
+	grid-column: 2/3;
+
+	background-image: url("../images/main/quotation-mark1.png"), url("../images/main/quotation-mark2.png");
+	background-position: 4% 10%, 96% 90%;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 4em, 4em;
+	opacity: 0.2;
+
+	/* Div has no content and will not show up otherwise*/
+	height: 100%;
+	width: 100%;
+}
+
+.testimonial-quote{
+	/* parent grid = testimonials(2 x 2)*/
+	grid-row: 1/2;
+	grid-column: 2/3;
+
+	font-family: 'Vollkorn', sans;
+	font-size: 1.2em;
+	line-height: 1.5em;
+
+	padding: 1em 1em 0 1em;
+
+	text-align: center;
+}
+
+.testimonial-person-name{
+	/* parent grid = testimonials(2 x 2)*/
+	grid-row: 2/3;
+	grid-column: 2/3;
+
+	font-family: 'Lato', sans-serif;
+	font-size: 1.5em;
+	font-weight: 300;
+	font-style: italic;
+
+	align-self: start;
+	justify-self:center;
+}
+
+
+@media only screen and (max-width: 1324px) {
+	/* HEADING SECTION*/
+	#directors-welcome .signature{
+		margin-right: 2em;
+	}
+}
+
+
+@media only screen and (min-height: 1024px) and (orientation: portrait) {
+	#home-heading-section{
+		background-attachment: unset;
+	}
+}
+	
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+	#home-heading-section{
+		background-attachment: unset;
+		background-position: 40% 0%;
+		background-size: cover;
+	}
+}
+
+@media only screen and (max-width: 896px) and (orientation: landscape){
+	#home-heading-section{
+		background-attachment: unset;
+		background-position: 0% 0%;
+		background-size: cover;
+	}
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait){
+	#home-heading-section{
+		background-attachment: unset;
+		background: url("../images/main/backgrounds/home-bg-fixed.jpg");
+		background-size: cover;
+		background-position: 76% 0%;
+	}
+}
+@media only screen and (max-width: 1024px) {
+	#directors-welcome .signature{
+		margin-right: 1em;
+	}
+}
+@media only screen and (min-width: 1024px) {
+	.academics-sub-section h3{
+		font-size: 2.4em;
+	}
+}
+
+@media only screen and (min-width: 568px) and (max-width: 1023px){
+	/* ACADEMICS SECTION */
+	#academics-content-wrapper{
+		display: grid;
+		grid-template-columns: unset;
+		grid-column-gap: unset;
+		grid-template-rows: auto auto auto;
+		grid-row-gap: 4em;
+	}
+	.academics-sub-section{
+		display: grid;
+		grid-template-columns: 1fr 2fr ;
+		grid-template-rows: auto auto auto;
+		grid-column-gap: 1em;
+		grid-row-gap: unset;
+		justify-items:start;
+		max-width: unset
+	}
+	#academics-kindergarten{
+		grid-column: unset;
+		grid-row: 1/2;
+		justify-self:unset;
+	}
+	#academics-elementary{
+		grid-column: unset;
+		grid-row: 2/3;
+		justify-self:unset;
+	}
+	#academics-school{
+		grid-column: unset;
+		grid-row: 3/4;
+		justify-self:unset;
+	}
+
+	.img-hover-zoom {
+		grid-row: 1/4;
+		grid-column: 1/2;
+		overflow: hidden; 
+		border: 6px solid #103e66;
+		max-width: 100%;
+		justify-self:start;
+	}
+	.img-hover-zoom img {
+		max-width: 424px;
+		transition: transform .8s ease;
+		transform: scale(1.05);
+		justify-self:center;
+	}
+
+	.img-hover-zoom:hover img {
+		transform: scale(1.2);
+	}
+
+	.academics-sub-section h3{
+		grid-row: 1/2;
+		grid-column: 2/3;
+	}
+
+	.academics-sub-section p{
+		grid-row: 2/3;
+		grid-column: 2/3;
+		padding: unset;
+		text-align: left;
+	}
+
+	.academics-sub-section a{
+		grid-row: 3/4;
+		grid-column: 2/3;
+		justify-self:end;
+		align-self: end;
+	}
+}
+@media only screen and (min-width: 568px) and (max-width: 768px){
+	/* ADACDEMICS SECTION */
+	.section-content .academics-sub-section p{
+		display: block;
+		overflow: hidden;
+	}
+	/* ADMISSION SECTION */
+	h6{
+		font-size: 12.500vw;
+	}
+
+	h5{
+		font-size: 2.344vw;
+	}
+
+	.admission-button{
+		font-size: 2.7vw;
+		padding: 1.042vw 2.084vw;
+		margin: 1.042vw auto;
+	}
+
+	#admission-content-wrapper{
+		grid-row-gap: 0.5em;
+	}
+}
+
+@media only screen and (max-width: 1024px){
+	/* HEADING SECTION*/
+	#home-heading-section{
+		background-attachment: unset;
+	}
+
+	/* TESTIMONIALS SECTION */
+	#testimonials-swiper{
+		grid-column-gap: 1em; 
+	}
+
+	.testimonial{
+		grid-row-gap: 0.5em;
+		grid-column-gap: 0.5em;
+	}
+
+
+	.testimonial-person-image{
+		width: 19.531vw;
+		margin: 0.5em;
+	}
+
+	.testimonial-quatation-marks{
+		background-position: 5% 0%, 95% 100%;
+		background-size: 6.25vw, 6.25vw;
+
+	}
+
+	.testimonial-quote{
+		font-size: 1.855vw;	
+	}
+
+	.testimonial-person-name{
+		font-size: 2.344vw;
+	}
+}
+
+@media only screen and (min-width: 568px) and (max-width: 668px){
+	#directors-welcome .signature div:nth-child(1){
+		font-size: 2.994vw;
+	}
+
+	#directors-welcome .signature div:nth-child(2){
+		font-size: 2.994vw;
+	}
+}
+@media only screen and (max-width: 768px) {
+
+	/* ACADEMICS SECTION */
+	#academics-heading{
+		margin-bottom: 0.5em;
+	}
+	/* WELCOME SECTION */
+	#directors-welcome .signature{
+		margin-top: 1em;
+	}
+	/* TESTIMONIALS SECTION */
+	#testimonials-swiper{
+		grid-column-gap: 0em; 
+	}
+
+	.testimonial{
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: auto auto minmax(26px, auto) ;
+		grid-column-gap: 1em;
+	}
+
+
+	.testimonial-person-image{
+		/* parent grid = testimonials(2 x 1)*/
+		grid-row: 1/2;
+		grid-column: 1/2;
+
+		width: 18vw;
+
+		box-shadow: 0 0 4px black;
+		/*Shadow is squarish without margin*/
+		margin: 0.5em;
+
+		justify-self:center;
+	}
+
+	.testimonial-quatation-marks{
+		/* parent grid = testimonials(2 x 2)*/
+		grid-row: 2/3;
+		grid-column: 1/2;
+
+		background-size: 8.333vw,8.333vw;
+	}
+
+	.testimonial-quote{
+		/* parent grid = testimonials(2 x 2)*/
+		grid-row: 2/3;
+		grid-column: 1/2;
+
+		line-height: 1.5em;
+
+		padding: 0.5em;
+		font-size: 1.6vw;
+	}
+
+	.testimonial-person-name{
+		/* parent grid = testimonials(2 x 2)*/
+		grid-row: 3/4;
+		grid-column: 1/2;
+
+		font-size: 3.125vw;
+	}
+}
+@media only screen and (max-width: 568px) {
+	/* HEADING SECTION */
+	#home-heading-section .desktop-h1{
+		display: none;
+	}
+
+	#home-heading-section .mobile-h1-row{
+		display: inline-block;
+	}
+	#directors-welcome .signature{
+		margin-right: 0em;
+	}
+
+}
+@media only screen and (min-width: 568px) and (max-width: 768px){
+	.academics-sub-section .red-button{	
+		font-size: 2.474vw;
+	}
+}
+@media only screen and (max-width: 567px) {
+	/* ACADEMICS SECTION */
+	#academics-section{
+		grid-row-gap: 0em;
+	}
+	#academics-heading{
+		display: none;
+	}
+	#academics-content-wrapper{
+		grid-template-columns: auto minmax(auto,424px) auto;
+		grid-column-gap: unset;
+		grid-template-rows: auto auto auto auto;
+		grid-row-gap: 2em;
+	}
+	.academics-sub-section{
+		row-gap: 2em;
+	}
+	#academics-kindergarten{
+		grid-column: 2/3;
+		grid-row: 1/2;
+		justify-self:center;
+	}
+	#academics-elementary{
+		grid-column: 2/3;
+		grid-row: 2/3;
+		justify-self:center;
+	}
+	#academics-school{
+		grid-column: 2/3;
+		grid-row: 3/4;
+		justify-self:center;
+	}
+
+	#academics-content-wrapper hr{
+		display: block;
+		margin: 0 auto;
+		width: 10%;
+		margin-top: 0.5em;
+		background-color: #147b45;
+		border: 2px solid #147b45;
+	}
+
+	.img-hover-zoom {
+		width: 70%;
+		min-width: 240px;
+	}
+
+	.img-hover-zoom {
+		grid-row: 2/3;
+	}
+
+	.academics-sub-section h3{
+		grid-row: 1/2;
+		font-size: 2.1em;
+
+	}
+
+	.academics-sub-section p{
+		width: 70%;
+		min-width: 240px;
+	}
+
+
+	/* ADMISSION SECTION */
+	#admission-heading{
+		margin-bottom: 0.5em;
+	}
+	#admission-content-wrapper{
+		grid-template-columns: auto max-content auto ;
+		grid-template-rows: auto auto auto auto;
+		justify-items:center;
+		max-width: 500px;
+		justify-self: center;
+	}
+	#admission-main-item{
+		grid-row: 4/5;
+		grid-column: 1/4;
+		margin-top: 1em;
+	}
+	.admission-button{
+		min-width: 80%;
+	}
+
+	#admission-content-wrapper div.label{
+		width: unset;
+	}
+	h6{
+		font-size: 4em;
+	}
+	h5{
+		font-size: 0.75em;
+	}
+	.admission-button{
+		font-size: 1em;
+	}
+
+	/* TESTIMONIAL SECTION */
+	.testimonial-person-image{
+		width: 102px;
+	}
+
+
+	.testimonial-quatation-marks{
+
+		background-size: 2.8em, 2.8em;
+	}
+	.testimonial-quote{
+		font-size: 0.9em;
+	}
+
+	.testimonial-person-name{
+		font-size: 1.15em;
+	}
+
+	.testimonial{
+		grid-row-gap: 0.5em;
+	}
+}
+
+@media only screen and (max-height: 568px) {
+	/* HEADING SECTION */
+	#home-heading-section h1{
+		letter-spacing: 0.02em;
+	}
+}
+
+@media only screen and (min-width: 568px) and (max-width: 896px) 
+and (max-height: 414px) and (orientation: landscape) {
+	#home-heading-section .desktop-h1{
+		display: none;
+	}
+
+	#home-heading-section .mobile-h1-row{
+		display: inline-block;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-height: 414px)
+and (orientation: landscape) {
+	h6{
+		font-size: 23.188vh;
+	}
+
+	h5{
+		font-size: 4.3478vh;
+	}
+
+	.admission-button{
+		font-size: 5.797vh;
+	}
+
+	#admission-content-wrapper{
+		grid-row-gap: 0.5em;
+	}
+}
+
+@media only screen and  (max-height: 414px) and (max-width: 896px) and (orientation: landscape) {
+	.img-hover-zoom:hover img {
+		transition: unset;
+		transform: scale(1.05);
+	}
+	.admission-button:hover{	
+		color: unset;
+		background-color: unset;
+	}
+}
+
+@media only screen and (max-width: 414px) and (max-height: 896px) and (orientation: portrait) {
+
+	.img-hover-zoom:hover img {
+		transition: unset;
+		transform: scale(1.05);
+	}
+	.admission-button:hover{	
+		color: unset;
+		background-color: unset;
+	}
+}
+
+
+@media only screen and (max-width: 360px) {
+	#directors-welcome .signature div:nth-child(1){
+		font-size: 5.556vw;
+	}
+
+	#directors-welcome .signature div:nth-child(2){
+		font-size: 5.556vw;
+	}
+}

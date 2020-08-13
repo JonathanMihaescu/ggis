@@ -1,0 +1,37 @@
+/*nav - arrows*/
+
+.arrow{
+
+	border-style: solid;
+	border-color: #1e73be;
+	box-sizing: border-box;
+	display: inline-block;
+	cursor: pointer;
+	transition: border-width 150ms ease-in-out;
+}
+.nav-arrow{
+	margin-left: 0.4em;
+	margin-bottom: 0.15em;
+	height: 0.4em;
+	width: 0.4em;
+	border-width: 0px 1px 1px 0px;	
+}
+.swiper-arrow{
+	margin-left: 1em;
+	margin-bottom: 0.375em;
+	height: 1em;
+	width: 1em;
+	border-width: 0px 2.5px 2.5px 0px;	
+}
+.arrow-down {
+	transform: rotate(45deg);
+}
+.arrow-right {
+	transform: rotate(-45deg);
+}
+.arrow-up {
+	transform: rotate(-135deg);
+}
+.arrow-left {
+	transform: rotate(135deg);
+}

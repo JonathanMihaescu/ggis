@@ -1,0 +1,987 @@
+@import "utils/reset.css";
+@import "utils/arrows.css";
+
+/* Delays render  */
+body{
+	visibility: hidden;
+}
+/* COLORS 
+	DARK: #09233a; maybe 103e66 ?
+	LIGHT BG1: #fefaf7
+	LIGHT TEXT : WHITE;
+
+*/
+
+/* FONT LIST:
+	- Montserrat 700 uppercase - h1, h2, brand.
+	- Noto Sans - header & main nav, footer, testimonial-person-name
+	- Vollkorn - welcome-heading, testimonial-quote
+	- Merriweather 300 - welcome-paragraph, admission-link
+	- Tangerine 700 - welcome-signature 
+	- Lato light 300 italic - maybe testimonial-person-description
+	- Lato bold 700 uppercase- maybe h2 
+	- Lato regular 400 - maybe testimonial-person-name
+
+*/
+
+body{
+	color: #103e66;
+	background-color: #fefaf7;
+}
+
+
+/* HEADER SECTION */
+
+header{
+	display: grid;
+	grid-template-columns: 
+		/*side - logo - brand - nav - toggle - side*/
+		auto max-content auto minmax(auto, 1000px) max-content auto;
+	margin:0 auto; 
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background-color: #fefaf7;
+	width: 100%;
+	height: auto;
+}
+
+#logo{
+	/* parent grid = header(1 x 5)*/
+	grid-column: 2/3;
+	content: url("../images/main/logo.png");
+
+	margin: 0.5em;
+	margin-left: 1em;
+	/* Logo height defines the height of HEADER NAV*/
+	height: 6.250em;
+	min-height: 3.75em;
+}
+#brand{
+	/* parent grid = header(1 x 5)*/
+	grid-column: 3/4;
+	align-self: center;
+
+	font-family: 'Montserrat', sans-serif;
+	color:#1e73be;
+
+	font-size: 1.563em;
+}
+#brand:hover{
+	color:#103e66;
+}
+
+/* common HEADER NAV, MAIN NAV and sub-menu */
+
+nav{
+	font-size: 1em;
+}
+
+/* common HEADER and MAIN NAV */
+
+nav ul li:hover, nav ul a:hover{
+	color:#1e73be;
+}
+nav ul li, nav ul a{
+	cursor: pointer;
+}
+
+/* common HEADER and MAIN sub-menu */
+
+.sub-menu{
+	margin-top: 1em;
+	margin-bottom: -1em;
+	
+	color:#1e73be;
+	background-color: #fefaf7;
+
+	/*display block/none to hide and show element*/
+	display: none;
+}
+
+ul.sub-menu a:hover  {
+	color:#103e66;
+}
+
+/* HEADER NAV*/
+
+header nav{
+	/* parent grid = header(1 x 5)*/
+	grid-column: 4/5;
+	align-self: center;
+	justify-self: right;
+
+	margin-right: 1em;
+
+	font-family: 'Noto Sans', sans-serif;
+	/*display block/none to hide and show element*/
+	display: block;
+}
+header nav ul li,header nav ul a{
+	/*display inline-block/none to hide and show element*/
+	display: inline-block;
+	margin: 1em;
+
+	/*position relative for HEADER NAV sub-menu absolute positioning*/
+	position: relative;
+}
+
+header ul.sub-menu{
+	/*places element underneath li parent from left to right*/
+	position: absolute;
+	top: 100;
+	margin-left: 0;
+	/* display item on top of main*/
+	z-index: 1;
+
+	min-width: 200px;
+}
+
+header ul.sub-menu a{
+	/*display block overrides inline-block header nav ul li */
+	display: block;
+	padding: 0.5em;
+
+}
+
+#toggle{
+	/* parent grid = header(1 x 5)*/
+	grid-column: 5/6;
+	align-self: center;
+	cursor: pointer;
+	/*display inline-block/none to hide and show element*/
+	display: none;
+
+}
+.toggle-open{
+	content: url("../images/app/toggle-open.png");
+	width: 1.875em;
+	min-width: 1.5em;
+	padding-right: 2em;
+}
+.toggle-close{
+	content: url("../images/app/toggle-close.png");
+	width: 2.813em;
+	min-width: 2.2em;
+	padding-right: 1.5em;
+}
+
+/* MAIN SECTION */
+
+main nav{
+
+	/*position relative not needed in MAIN because main stays where
+	  it was placed, no top or left properties */
+	position: fixed;
+	/*display block/none to hide and show element*/
+	top: 0;
+	left: 0;
+	display: none;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+	font-size: 6vw;
+	width: 100%;
+	background-color: #fefaf7;
+	z-index: 5;
+}
+main nav ul{
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	padding: 0 1em;
+}
+main nav ul a:nth-child(1){
+	grid-row: 1/2;
+}
+main nav ul a:nth-child(2){
+	grid-row: 2/3;
+}
+main nav ul li:nth-child(3){
+	grid-row: 3/4;
+	margin-right: -0.5em;
+}
+main nav ul a:nth-child(4){
+	grid-row: 4/5;
+}
+main nav ul a:nth-child(5){
+	grid-row: 5/6;
+}
+
+main nav ul.sub-menu{
+	float: right;
+	width: 50%;
+	/* display: grid; executed in js */
+	grid-template-columns: max-content max-content;
+	row-gap: 1em;
+	margin-top: -3em;
+	margin-left: 1em;
+	justify-items: start;
+	column-gap: 1em;
+}
+main nav ul.sub-menu a{
+	grid-column: 2/3;
+}
+main nav ul.sub-menu a:nth-child(1){
+	grid-row: 1/2;
+}
+main nav ul.sub-menu a:nth-child(2){
+	grid-row: 2/3;
+}
+main nav ul.sub-menu a:nth-child(3){
+	grid-row: 3/4;
+}
+main nav ul .arrow-right{
+	margin-left: unset;
+}
+
+
+/* HEADING SECTION */
+
+.heading-section-full, .heading-section-half{
+	/* parent grid = main(5 x 1)*/
+	grid-row: 1/2;
+	/*display table to make vertical align in #main-heading-wrapper*/
+	display: table;
+	/*used for main-heading-wrapper:after in absolute positioning */
+	position: relative;
+}
+
+/*main-heading-wrapper contains two h1 which make up the heading
+  Approach take in order to make sure that the heading, when showing on
+  two rows, never has 3 words in one row and on word on the second row*/
+.heading-section-full #main-heading-wrapper {
+	/*display table-cell to make elements vertical align*/
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	padding-left: 2em;
+	padding-right: 2em;
+	/* Needed for the vertical alignment to ignore the extra 200px added in 
+	common.js: setHeadingSectionDimensions*/
+}
+
+.heading-section-half{
+	height: 18.750em;
+	margin-bottom: 4em;
+}
+.heading-section-half #main-heading-wrapper{
+	background: inherit;
+	background-size: inherit;
+	background-position: inherit;
+
+	position: absolute;
+
+	overflow: hidden;
+	border: 6px solid white;
+	box-sizing: border-box;
+}
+
+.heading-section-half h1{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+.heading-section-half .blur-bg{
+
+	background: inherit;
+	background-size: inherit;
+	background-position: inherit;
+
+	position: absolute;
+
+	/* top left width height calculated in respective.js files */
+   transform: translate(-6px,-6px);
+
+	box-sizing: border-box;
+	filter: blur(8px);
+	z-index: 0;
+} 
+
+
+
+
+/* :after used on main-heading-wrapper and not heading-section because we want it to be relative to the wrapper and
+	not the whole page when height > 1024 (when the heading-section is not feeling up the whole window*/
+.heading-section-full #main-heading-wrapper:after{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom:0; 
+	border-bottom: 6.25em solid #103e66;
+	border-right: 98vw solid transparent;
+	z-index: 1;
+}
+
+/* FOOTER SECTION*/
+
+
+footer{
+	background-color: #09233a;
+	color: #fefaf7;
+	display: grid;
+	grid-template-columns: auto;
+	justify-items: center;
+}
+	
+footer .section-content{
+	grid-column: 1/2;
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(3,max-content);
+	grid-template-rows: auto auto;
+	padding: 1em 2em;
+
+}
+#footer-phone{
+	grid-row:1/2;
+	grid-column:1/2; 
+}
+#footer-address{
+	grid-row:1/2;
+	grid-column:2/3; 
+}
+#footer-email{
+	grid-row:1/2;
+	grid-column:3/4; 
+}
+#footer-social{
+	justify-self: center;
+	grid-row:2/3;
+	grid-column:1/4; 
+}
+#footer-social a i{
+	color: #fefaf7;
+}
+footer .section-content div{
+	padding: 0.5em;
+}
+
+footer .section-content span{
+	font-family: 'Lato', sans-serif;
+	font-size: 1.2em;
+	line-height: 1.2em;
+	font-weight: 300;
+	font-style: italic;
+}
+footer .section-content div i{
+	margin-right: 0.5em;
+	font-size: 18px;
+	color: #ab301c;
+}
+footer .section-content #footer-social a{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	cursor: pointer;
+	margin: 0 1em;
+}
+footer .section-content #footer-social a i{
+	font-size: 30px;
+	width: 100%;
+	height: 100%;
+	transform: translate(18%,10%);
+}
+footer .section-content #footer-social a i.fa-facebook{
+	transform: translate(30%,12%);
+}
+#footer-social a:hover{
+	border-radius: 5px;
+	background-color: #fefaf7;
+}
+#footer-social a:hover i{
+	color: #09233a;
+}
+
+
+/* HEADING TAGS*/
+
+h1{
+	color: #fefaf7;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3.2em;
+	line-height: 1.8em;
+	text-shadow: 0px 0px 15px #000000;
+	/*display inline-block to put both h1s on the same line*/
+	display: inline-block;
+
+	/*padding to create space between last word of first h1 and 
+	  first word of last h1 */
+	text-transform: uppercase;
+}
+h2{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.789em;
+	text-transform: uppercase;
+}
+
+h3{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.535em;
+}
+
+/* SECTIONS + :after cuts*/
+/* section-container used to contain :after cuts*/
+.section-container{
+	position: relative;
+}
+section.dark-section, section.light-section{
+	display: grid;
+	grid-template-columns: auto minmax(auto,1400px) auto;
+	grid-template-rows: auto auto;
+	grid-row-gap: 3em;
+	grid-column-gap: 4em;
+}
+section.dark-section.no-heading, section.light-section.no-heading{
+	grid-row-gap: 0;
+}
+
+.right-cut + .section-container .no-heading, .left-cut + .section-container .no-heading{
+	padding-top: 3.125em; 
+}
+
+.dark-section{
+	background-color: #103e66;
+	color: #fefaf7;
+}
+.light-section{
+	background-color: #fefaf7;
+}
+
+.section-heading{
+	grid-column: 2/3;
+	grid-row: 1/2;
+}
+.section-content{
+	grid-column: 2/3;
+	grid-row: 2/3;
+}
+/* depending on the previous sibling cuts, heading is aligned 
+	to the left or not the right*/
+.right-cut + div section .section-heading{
+	text-align: right;
+}
+.left-cut + div section .section-heading{
+	text-align: left;
+}
+.no-cut + div section .section-heading{
+	text-align: center;
+}
+/* Any section that has a cuts need bottom-padding*/
+.section-container.right-cut .dark-section,
+.section-container.left-cut .dark-section,
+.section-container.right-cut .light-section,
+.section-container.left-cut .light-section{
+	padding-bottom: 9.375em; 
+}
+
+.right-cut + .section-container .dark-section,
+.right-cut + .section-container .light-section,
+.left-cut + .section-container .dark-section,
+.left-cut + .section-container .light-section{
+	padding-top: 3.125em; 
+}
+.section-container.no-cut .dark-section,
+.section-container.no-cut .light-section{
+	padding-bottom: 4em;  
+}
+/* section cuts */
+.section-container.right-cut .dark-section:after{
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom:0; 
+	border-bottom: 6.25em solid #fefaf7;
+	border-left: 98vw solid transparent;
+	z-index: 1;
+}
+.section-container.left-cut .dark-section:after{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom:0; 
+	border-bottom: 6.25em solid #fefaf7;
+	border-right: 98vw solid transparent;
+	z-index: 1;
+}
+.section-container.right-cut .light-section:after{
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom:0; 
+	border-bottom: 6.25em solid #103e66;
+	border-left: 98vw solid transparent;
+	z-index: 1;
+}
+.section-container.left-cut .light-section:after{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom:0; 
+	border-bottom: 6.25em solid #103e66;
+	border-right: 98vw solid transparent;
+	z-index: 1;
+}
+
+div.section-content p, div.section-content ul{
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	line-height: 1.8em;
+	font-size: 1em;
+}
+div.section-content p + p{
+	margin-top: 1em;
+}
+
+.red-button{
+	text-align: center;
+	cursor: pointer;
+	
+	font-family: 'Lato', sans;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding: 0.5em 0;
+
+	height: 1.2em;
+	width: 9em;
+
+	color: #fefaf7;
+	background-color: #be1e23;
+	border-radius: 25px;
+}
+
+.red-button:hover{	
+	color: #be1e23;
+	background-color: #fefaf7;
+    box-shadow:inset 0px 0px 0px 3.5px #be1e23;
+}
+
+
+hr{
+	background-color: #ab301c;
+	border: 2px solid #ab301c;
+	width: 100%;
+}
+hr.vertical-hr{
+	width: 1px;
+	height: 100%;
+	display: inline-block;
+}
+@media only screen and (min-height: 1024px) {
+	/* HEADING SECTION*/
+	.heading-section-full #main-heading-wrapper{
+		/* no padding needed since there's no pixels added in common.js: setHeadingSectionDimensions (CASE1)*/
+		padding-bottom: 0px;
+	}
+
+}
+
+@media only screen and (min-width: 1024px) {
+	/* HEADING SECTION*/
+	.heading-section-full #main-heading-wrapper{
+		/* 200 padding needed since its added in common.js: setHeadingSectionDimensions (CASE2)*/
+		padding-bottom: 200px;
+	}
+}
+@media only screen and (max-width: 1023px) and (max-height: 1024px) {
+	/* HEADING SECTION*/
+	.heading-section-full #main-heading-wrapper{
+		/* 100 padding needed since its added in common.js: setHeadingSectionDimensions (CASE3)*/
+		padding-bottom: 100px;
+	}
+}
+
+/* VIEWPORT width = 768 - 1024 px */
+
+@media only screen and (max-width: 1024px){
+	/* HEADING SECTION*/
+
+	.heading-section-half{
+		margin-bottom: 3em;
+	}
+	.heading-section-full:after{
+		bottom:0; 
+	}
+	/* HEADER */
+	#logo{
+		height: 9.5vw;
+	}
+
+	/* MAIN */
+
+	section.dark-section, section.light-section{
+		grid-row-gap: 2em;
+		grid-column-gap: 3em;
+	}
+	.section-container.no-cut .dark-section,
+	.section-container.no-cut .light-section{
+		padding-bottom: 3em;  /*TODO: make it a little bigger (6.25, 12.5) */
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.heading-section-half #main-heading-wrapper{
+		width: 384px;
+		height: 124px;
+	}
+}
+
+/* TODO: This is the way it should be, fix personalized paragraphs
+ and then set the generic ones ; */
+@media only screen and (min-width: 568px) and (max-width: 896px){
+	div.section-content p, div.section-content ul{
+		font-size: 1.786vw;
+	}
+}
+
+/* @media only screen and (min-width: 568px) and (max-width: 768px){
+	div.section-content p, div.section-content ul{
+		font-size: 2.083vw;
+	}
+} */
+
+/* VIEWPORT width = 568 - 768 px */
+
+@media only screen and (max-width: 768px){
+	h1{
+		font-size: 6.641vw;
+	}
+	h2{
+		font-size: 6vw;
+
+	}
+	h3{
+		font-size: 5.5vw;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+
+	.heading-section-half #main-heading-wrapper{
+		width: calc(51.5625% - 12px);
+		height: calc(45.33% - 12px);
+	}
+
+
+	.heading-section-half{
+		height: 39.063vw;
+		margin-bottom: 2em;
+	}
+
+	/* HEADER */
+	div.section-content p, div.section-content ul{
+		text-align: justify;
+	}
+	
+	#brand{
+		font-size: 3.255vw;
+	}
+	header nav{
+		display: none;
+	}
+	#toggle{
+		display: inline-block;
+	}
+	/* common HEADER NAV and MAIN NAV and sub-menu */
+	nav{
+		font-size: 0.8em;
+	}
+
+	.right-cut + div section .section-heading,
+	.left-cut + div section .section-heading,
+	.section-heading{
+		text-align: center;
+	}
+
+	section.dark-section, section.light-section{
+		grid-column-gap: 2em;
+	}
+	
+	.section-container.no-cut .dark-section,
+	.section-container.no-cut .light-section{
+		padding-bottom: 2em;  /*TODO: make it a little bigger (6.25, 12.5) */
+	}
+}
+
+/* VIEWPORT width = 568 - 768 px */
+
+@media only screen and (max-width: 569px) {
+	/* HEADER */
+	#brand{
+		display: none;
+	}
+
+	.toggle-open{
+		content: url("../images/app/toggle-open.png");
+		width: 5.3vw;
+		padding-right: 5.653vw;
+	}
+	.toggle-close{
+		content: url("../images/app/toggle-close.png");
+		width: 7.95vw;
+		padding-right: 4.24vw;
+
+	}
+
+	/* HEADING SECTION*/
+
+	.heading-section-half #main-heading-wrapper{
+		width: 280px;
+		height: 88px;
+	}
+	.heading-section-half{
+		height:13.867em;
+	}
+	h1{
+		font-size: 2.357em;
+	}
+	h2{
+		font-size: 2.1em;
+	}
+	h3{
+		font-size: 1.9em;
+	}
+
+	section.dark-section, section.light-section{
+		grid-column-gap: 1.5em;
+	}
+	section.light-section{
+		grid-row-gap: 1.5em;
+	}
+
+	.section-container.right-cut .dark-section,
+	.section-container.left-cut .dark-section,
+	.section-container.right-cut .light-section,
+	.section-container.left-cut .light-section{
+		padding-bottom: 7.8125em; 
+	}
+}
+@media only screen and (max-width: 475px) {
+	/* HEADING SECTION*/
+	.heading-section-half{
+		height:53.382vw;
+	}
+}
+
+
+@media only screen and (max-width: 360px) {
+	/* HEADING SECTION*/
+	.heading-section-half #main-heading-wrapper{
+		width: 77.778vw;
+		height: 24.444vw;
+	}
+
+}
+
+
+
+@media only screen and (min-width: 768px) and (max-height: 414px)
+and (orientation: landscape) {
+	div.section-content p, div.section-content ul{
+		font-size: 3.864vh;
+	}
+	.heading-section-half{
+		height: 72.46vh;
+	}
+
+}
+
+
+@media only screen and  (max-height: 414px) and (orientation: landscape) {
+	.heading-section-half #main-heading-wrapper{
+		width:  92.75vh;
+		height: 29.95vh;
+	}
+	h1{
+		font-size: 12.31vh;
+	}
+
+	h2{
+		font-size: 10.628vh;
+
+	}
+	h3{
+		font-size: 9.66vh;
+	}
+	#logo{
+		height: 18vh;
+		min-height: unset;
+	}
+	#brand{
+		font-size: 4.5vh;
+	}
+	nav{
+		font-size:   3.865vh;
+	}
+	.toggle-open{
+		width: 7vh;
+		min-width: unset;
+	}
+	.toggle-close{
+		width: 10.5vh;
+		min-width: unset;
+	}
+}
+
+@media only screen and  (max-height: 414px) and (max-width: 896px) and (orientation: landscape) {
+	footer .section-content #footer-social a:hover{
+		color: unset;
+		border-radius: unset;
+		background-color: unset;
+	}
+	#footer-social a:hover i{
+		color: unset;
+	}
+
+	.red-button:hover,.red-button:active{	
+		color: #fefaf7;
+		background-color: #be1e23;
+	}
+}
+
+@media only screen and (max-width: 414px) and (max-height: 896px) and (orientation: portrait) {
+	footer .section-content #footer-social a:hover{
+		color: unset;
+		border-radius: unset;
+		background-color: unset;
+	}
+	#footer-social a:hover i{
+		color: unset;
+	}
+
+	.red-button:hover,.red-button:active{
+		color: #fefaf7;
+		background-color: #be1e23;
+	}
+}
+
+@media only screen and (min-width: 568px) and (max-width: 768px) {
+	footer .section-content span{
+		font-size: 2.474vw;
+	}
+	footer .section-content div i {
+		font-size: 2.344vw;
+	}
+	footer .section-content{
+		padding: 1em 1em;
+	}
+	footer .section-content #footer-social a i{
+		font-size: 3.906vw; 
+	}
+	footer .section-content #footer-social a{
+		width: 5.208vw;
+		height: 5.208vw;
+	}
+	footer .section-content #footer-social {
+		padding-top: 1em;
+	}
+}
+
+@media only screen and (max-width: 567px) {
+	footer .section-content{
+		grid-template-columns: max-content;
+		grid-template-rows: auto auto auto auto;
+		padding: 1em 0.5em;
+		justify-items: center;
+	}
+	#footer-phone{
+		grid-row:1/2;
+		grid-column:1/2; 
+	}
+	#footer-address{
+		grid-row:2/3;
+		grid-column:1/2; 
+	}
+	#footer-email{
+		grid-row:3/4;
+		grid-column:1/2; 
+	}
+	#footer-social{
+		grid-row:4/5;
+		grid-column:1/2; 
+	}
+	#footer-social a{
+		margin: 0.5em; 
+	}
+}
+
+@media only screen and (max-width: 414px) {
+	footer .section-content{
+		padding: 0.5em 0.5em;
+	}
+	footer .section-content div {
+		padding: 0.2em;
+	}
+	footer .section-content #footer-social {
+		padding-top: 1em;
+	}
+	footer .section-content span{
+		font-size: 4.589vw;
+	}
+	footer .section-content div i{
+		font-size: 4.348vw;
+	}
+	footer .section-content #footer-social a i{
+		font-size: 7.246vw; /* 30 */
+	}
+}
+
+@media only screen and (max-width: 768px) and (max-height: 414px) 
+and (orientation: landscape){
+
+	main nav{
+		font-size: 6vh;
+	}
+	main nav ul{
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: repeat(5,auto);
+		justify-items: center;
+		align-items: center;
+		padding: 0 1em;
+	}
+	main nav ul a:nth-child(1){
+		grid-row: 1/2;
+	}
+	main nav ul a:nth-child(2){
+		grid-row: 2/3;
+	}
+	main nav ul li:nth-child(3){
+		grid-row: 3/4;
+	}
+	main nav ul a:nth-child(4){
+		grid-row: 4/5;
+	}
+	main nav ul a:nth-child(5){
+		grid-row: 5/6;
+	}
+
+	main nav ul.sub-menu{
+		/* display: grid; executed in js */
+		grid-template-columns: auto;
+		row-gap: 1em;
+		margin-top: -3em;
+	}
+	main nav ul .arrow-right{
+		margin-left: unset;
+	}
+}
+
+
+
+@media only screen and (max-width: 768px) and (max-height: 414px) 
+and (orientation: landscape){
+
+	main nav{
+		font-size: 6vh;
+	}
+	main nav ul.sub-menu{
+		grid-template-columns: max-content;
+		position: fixed;
+		left: 46vw;
+	}
+}

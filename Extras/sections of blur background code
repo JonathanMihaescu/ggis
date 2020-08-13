@@ -1,0 +1,204 @@
+
+
+1. Home 
+2. About (Mission & Vision - 2 paragraphs What we Believe - 	2 paragrahs)
+	- Meet the staff - For later
+3. Academics (profile picture some paragraphs explainig the curriculum)
+	- Preschool 
+	- Elem
+	- School
+4. Admission 
+	- Policy and Procedure (Apply Now)
+		- step by step process (get picture of brochure with steps) + form ? 
+		- email, pay fee meet office (+maybe email ?)
+	- Tuition Fees - Scholarship
+		- separate page almost ready 
+5. Contact
+	- contact information (phone # email form ?)
+	- becomes a staff member included (to be mentioned)
+
+	instagram plugin images slider
+
+
+CSS
+
+/* ADMISSION SECTION */
+
+#admission-section{
+	/* parent grid = main(5 x 1)*/
+	grid-row: 5/6;
+	/* position relative for absolute admission-content */
+	position: relative;
+
+	background: url("../images/main/home-background5.jpg") center no-repeat fixed;
+	background-size: cover;
+
+	border: 0.5em solid black;
+}
+
+.admission-item{
+	box-sizing: border-box;
+	display: grid;
+	align-items: center;
+	justify-items:center;
+
+	position: absolute;
+	color: white;
+
+}
+
+.admission-item.link{
+	/* Uncomment to make blurry*/
+	/*background: inherit;
+	background-size: inherit;*/
+
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.admission-blur-bg{
+	background: inherit;
+	background-size: inherit;
+
+	height: 100%;
+	width: 100%;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	filter: blur(8px);
+}
+
+.admission-content-label{
+	width: 80%;
+	box-sizing: border-box;
+	z-index: 1;
+
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3em;
+	text-align: center;
+
+	text-shadow: 0 0 5px black;
+}
+
+#admission-tuition{
+	height: 70%; /*=ch*/
+	width: 40%; /*=cw*/
+
+	top: 0%; /*=ct*/
+	left: 0%; /*cl*/
+
+	border-bottom:  0.5em solid black;
+	border-right:  0.5em solid black;
+	color: white;
+	background-color: #d9534f;
+}
+
+#admission-tuition-blur-bg{
+	/* - [cl - (cw/2)] % ,  -[ct - (ch/2)] % */
+	transform: translate(20%;,-35%);
+
+}
+
+#admission-teachers {
+	height: 70%; 
+	width: 40%; 
+
+	top: 0%;
+	left: 40%;
+
+	border-bottom:  0.5em solid black;
+	border-right:  0.5em solid black;
+}
+
+#admission-faq{
+	height: 40%; /*=ch*/
+	width: 20%; /*=cw*/
+
+	top: 0%; /*=ct*/
+	left: 80%; /*cl*/
+
+	border-bottom:  0.5em solid black;
+	color: white;
+	background-color: #5cb85c;
+}
+#admission-faq-blur-bg{
+	/* - [cl - (cw/2)] % ,  -[ct - (ch/2)] % */
+	transform: translate(-70%;,20%);
+}
+
+#admission-nationalities {
+	height: 30%; 
+	width: 30%; 
+
+	top: 70%;
+	left: 0%;
+}
+
+
+#admission-policy{
+	height: 40%; /*=ch*/
+	width: 50%; /*=cw*/
+
+	top: 60%; /*=ct*/
+	left: 30%; /*cl*/
+
+	border-top:  0.5em solid black;
+	border-left:  0.5em solid black;
+	border-right:  0.5em solid black;
+	color: white;
+	background-color: #f0ad4e;
+}
+#admission-policy-blur-bg{
+	/* - [cl - (cw/2)] % ,  -[ct - (ch/2)] % */
+	transform: translate(-5%;,50%);
+}
+
+#admission-students {
+	height: 60%; 
+	width: 20%; 
+
+	top: 30%;
+	left: 80%;
+}
+
+HTML 
+
+<!-- START ADMISSION SECTION -->
+		<section id="admission-section">
+			<div id="admission-tuition" class="admission-item link">
+				<div class="admission-content-label">
+					Tuition & Fees 
+				</div>
+				<div id="admission-tuition-blur-bg" class="admission-blur-bg"></div>
+			</div>
+			<div id="admission-teachers" class="admission-item">
+				<div class="admission-content-label">
+					20 Teachers 
+				</div>
+			</div>
+			<div id="admission-faq" class="admission-item link">
+				<div class="admission-content-label">
+					FAQ
+				</div>
+				<div id="admission-faq-blur-bg" class="admission-blur-bg"></div>
+			</div>
+			<div id="admission-nationalities" class="admission-item">
+				<div class="admission-content-label">
+					10 Nationalities 
+				</div>
+			</div>
+			<div id="admission-policy" class="admission-item link">
+				<div class="admission-content-label">
+					Policy & Scholarship
+				</div>
+				<div id="admission-policy-blur-bg" class="admission-blur-bg"></div>
+			</div>
+			<div id="admission-students" class="admission-item">
+				<div class="admission-content-label">
+					10 students 
+				</div>
+			</div>
+			
+		</section>

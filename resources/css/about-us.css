@@ -1,0 +1,194 @@
+@import "common.css";
+
+/* GENERAL */
+
+#about-heading-section{
+	background: url("../images/main/backgrounds/about-bg.jpg") no-repeat;
+	background-size: cover;
+	background-position: 0% 35%;
+}
+/* COMMON */
+
+.two-col-content{
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-items: center;
+	align-items: center;
+	column-gap: 4em;
+}
+.two-col-content p {
+	text-align: justify;
+}
+/* MISSION-SECTION */
+#mission-section h3{
+	grid-column: 1/2;
+}
+#mission-section p{
+	grid-column: 2/3;
+}
+
+/* VISION-SECTION */
+#vision-section h3{
+	grid-column: 2/3;
+}
+#vision-section p{
+	grid-column: 1/2;
+}
+/* PRINCIPLES-SECTION */
+#principles-section .section-heading{
+	text-align: center;
+}
+#principles-content ul:first-child{
+	align-self: start;
+	grid-column: 1/2;
+	display: grid;
+	height: 100%;
+}
+
+#principles-content ul:last-child{
+	align-self: start;
+	grid-column: 2/3;
+	display: grid;
+	height: 100%;
+}
+#principles-content{
+ 	text-align: center;
+}
+#principles-content{
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-items: center;
+	align-items: center;
+}
+#principles-content ul{
+	list-style: none;
+	text-align: center;
+}
+#principles-content ul:first-child{
+	border-right: 2px solid black;
+}
+#principles-content ul:last-child{
+	border-left: 2px solid black;
+}
+#principles-content ul li{
+	border-top: 2px solid black;
+	border-bottom: 2px solid black; 
+	padding: 1em;
+}
+#principles-content ul li:hover{
+	background-color: #103e66;
+	color: #fefaf7 ;
+}
+#principles-content ul li:first-child{
+	border-top: 0px solid black;
+}
+#principles-content ul li:last-child{
+	border-bottom: 0px solid black; 
+}
+
+@media only screen and (max-width: 1024px){
+	/* COMMON */
+	.two-col-content{
+		column-gap: 2em;
+	}
+	.two-col-content h3{
+		padding: 0.25em 0.5em;
+	}
+	.two-col-content p{
+		text-align: justify;
+	}
+}
+/* Overriding p folding at 866 at common.js */
+@media only screen and (min-width: 668px) and (orientation: portrait){
+	#mission-section p, #vision-section p, #principles-content ul{
+		font-size: 1em;
+	}
+}
+@media only screen and (min-width: 568px) and (max-width: 668px){
+	#mission-section p, #vision-section p, #principles-content ul{
+		font-size: 2.395vw;
+	}
+}
+@media only screen and (max-width: 768px) {
+	/* COMMON */
+	.two-col-content h3{
+		padding: 0.25em 0.5em;
+	}
+	
+}
+
+@media only screen and (max-width: 567px) {
+	/* COMMON */
+	.two-col-content{
+		display: grid;
+		grid-template-rows: auto auto;
+		grid-row-gap: 1.5em;
+	}
+	.two-col-content h3{
+		border: none;
+		padding: 0;
+	}
+	/* MISSION and VISION-SECTION */
+	#mission-section{
+		grid-template-columns: unset;
+		text-align: unset;
+	}
+	#vision-section{
+		grid-template-columns: unset;
+		text-align: center;
+	}
+	#mission-section h3, #vision-section h3{
+		grid-column: unset;
+		grid-row: 1/2;
+	}
+	#mission-section p, #vision-section p{
+		grid-column: unset;
+		grid-row: 2/3;
+	}/* PRINCIPLES-SECTION */
+	#principles-section h3{
+		margin-bottom: 0.5em;
+	}
+	#principles-content ul:last-child{
+		grid-column: 1/2;
+	}
+	#principles-content{
+		grid-template-columns: auto;
+	}
+	#principles-content ul:first-child{
+		border-right: unset;
+	}
+	#principles-content ul:last-child{
+		border-left: unset;
+	}
+	#principles-content ul li{
+		padding: 1em;
+	}
+	#principles-content ul li:nth-child(odd){
+		border-left: 6px solid black;
+		padding-right: 0em;
+	}
+	#principles-content ul li:nth-child(even){
+		border-right: 6px solid black;
+		padding-left: 0em;
+	}
+	#principles-content ul li{
+		border-top: unset;
+		border-bottom: unset; 
+		margin-bottom: 1em;
+	}
+	
+}
+
+@media only screen and  (max-height: 414px) and (max-width: 896px) and (orientation: landscape) {
+	#principles-content ul li:hover{
+		background-color: unset;
+		color: unset ;
+	}	
+}
+
+@media only screen and  (max-width: 414px) and (max-height: 896px) and (orientation: portrait) {
+	#principles-content ul li:hover{
+		background-color: unset;
+		color: unset ;
+	}	
+}
